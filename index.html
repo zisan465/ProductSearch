@@ -84,8 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
             productDiv.classList.add("product");
             productDiv.innerHTML = `<p>পোডাক্টের নাম : ${product.name}</p>
                                     <p>কাষ্টমার দাম: ${product.salesPrice.toFixed(2)}</p>
-                                    <p>দোকানদার দাম: ${product.retailPrice.toFixed(2)}</p>
-                                    <p>কেনা দাম : ${product.purchasePrice.toFixed(2)}</p>`;
+                                    <p>দোকানদার দাম: ${product.retailPrice.toFixed(2)}</p>`;
             resultContainer.appendChild(productDiv);
         });
     }
