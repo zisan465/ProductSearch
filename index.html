@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Product Search</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: left;
+}
+
+#searchInput {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#resultContainer {
+    margin-top: 20px;
+}
+
+.product {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(214, 214, 214);
+}
+.product:hover{
+    background-color: rgb(138, 189, 235);
+    font-weight: bold;
+}
+.product-search-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-search-div">
+            <h1>প্রোডাক্ট খুজুন</h1>
+            <input type="text" id="searchInput" placeholder="Search for a product...">
+        </div>
+        <div id="resultContainer"></div>
+    </div>
+
+
+    <script src="product.js"></script>
+    <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+
+    const searchInput = document.getElementById("searchInput");
+    const resultContainer = document.getElementById("resultContainer");
+
+    searchInput.addEventListener("input", function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filteredProducts = products.filter(product => containsAllWords(product.name.toLowerCase(), searchTerm));
+        displayProducts(filteredProducts);
+    });
+
+    function containsAllWords(productName, searchTerm) {
+        const searchWords = searchTerm.split(" ");
+        return searchWords.every(word => productName.includes(word));
+    }
+
+    function displayProducts(products) {
+        resultContainer.innerHTML = "";
+
+        if (products.length === 0) {
+            resultContainer.innerHTML = "<p>No products found.</p>";
+            return;
+        }
+
+        products.forEach(product => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+            productDiv.innerHTML = `<p>পোডাক্টের নাম : ${product.name}</p>
+                                    <p>কাষ্টমার দাম: ${product.salesPrice.toFixed(2)}</p>
+                                    <p>দোকানদার দাম: ${product.retailPrice.toFixed(2)}</p>
+                                    <p>কেনা দাম : ${product.purchasePrice.toFixed(2)}</p>`;
+            resultContainer.appendChild(productDiv);
+        });
+    }
+});
+
+    </script>
+</body>
+</html>
