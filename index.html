@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&display=swap" rel="stylesheet">
     <title>Product Search</title>
+
+
     <style>
+
+
     body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: "Anek Bangla", sans-serif;
 }
 
 .container {
@@ -23,12 +30,15 @@
 
 #resultContainer {
     margin-top: 20px;
+    margin-bottom: 60px;
 }
 
 .product {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(255 255 255);
+    box-shadow: 2px 1px 7px 0px #8abdeb;
+    border-radius: 10px;
 }
 .product:hover{
     background-color: rgb(138, 189, 235);
@@ -37,34 +47,206 @@
 .product-search-div{
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+h1{
+    text-align: center;
+}
+.slidbar{
+    width: 100%;
+    height: 50px;
+    background-color: aliceblue;
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 10px;
+    overflow-x: scroll;
+    display: flex;
+}
+
+
+.card {
+  box-shadow: 0 1rem 2rem hsl(0 0% 0% / 20%);
+  
+  background: hsl(0 0% 100%);
+  color: hsl(200 50% 20%);
+  line-height: 1.5;
+  font-size: 1.5rem;
+  font-weight: 300;
+  width: 35vmin;
+  height: 35vmin;
+  display: flex;
+  place-items: center;
+  text-align: center;
+  padding: 3ch;
+  border-radius: 2ch;
+  border: 1px solid hsl(0 0% 83%);
+}
+ 
+.better {
+  box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+}
+
+html {
+
+  background: hsl(0 0% 85%);
+}
+
+
+
+
+
+
+:focus{outline: none;}
+/* necessary to give position: relative to parent. */
+input[type="text"]{font: 15px/24px 'Muli', sans-serif; color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+:focus{outline: none;}
+.col-3{float: left; width: 90%; margin: 0 3%; position: relative;} /* necessary to give position: relative to parent. */
+input[type="text"]{font: 15px/24px "Lato", Arial, sans-serif; color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+
+
+.effect-19,
+.effect-20,
+.effect-21{border: 1px solid #ccc; padding: 7px 14px; transition: 0.4s; background: transparent;}
+
+.effect-19 ~ .focus-border:before,
+.effect-19 ~ .focus-border:after{content: ""; position: absolute; top: -1px; left: 50%; width: 0; height: 2px; background-color: #5579ff; transition: 0.4s;}
+.effect-19 ~ .focus-border:after{top: auto; bottom: 0;}
+.effect-19 ~ .focus-border i:before,
+.effect-19 ~ .focus-border i:after{content: ""; position: absolute; top: 50%; left: 0; width: 2px; height: 0; background-color: #5579ff; transition: 0.6s;}
+.effect-19 ~ .focus-border i:after{left: auto; right: 0;}
+.effect-19:focus ~ .focus-border:before,
+.effect-19:focus ~ .focus-border:after,
+.has-content.effect-19 ~ .focus-border:before,
+.has-content.effect-19 ~ .focus-border:after{left: 0; width: 100%; transition: 0.4s;}
+.effect-19:focus ~ .focus-border i:before,
+.effect-19:focus ~ .focus-border i:after,
+.has-content.effect-19 ~ .focus-border i:before,
+.has-content.effect-19 ~ .focus-border i:after{top: -1px; height: 100%; transition: 0.6s;}
+.effect-19 ~ label{position: absolute; left: 14px; width: 100%; top: 5px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.effect-19:focus ~ label, .has-content.effect-19 ~ label{top: -18px; left: 0; font-size: 12px; color: #5579ff; transition: 0.3s;}
+
+
+.slidbar > button{
+    margin: 0px 5px;
+    padding: 0px 50px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.button-29 {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-29:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button-29:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-29:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
 }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="product-search-div">
-            <h1>প্রোডাক্ট খুজুন</h1>
-            <input type="text" id="searchInput" placeholder="Search for a product...">
+            <h1>প্রোডাক্ট খুজুন</h1>     
+          
+
+            <div class="col-3 input-effect">
+                <input id="searchInput" class="effect-19" type="text" placeholder="">
+                <label>First Name</label>
+                <span class="focus-border">
+                    <i></i>
+                </span>
+            </div>
+
+
+            <div id="resultContainer">
+
+            </div>
         </div>
-        <div id="resultContainer"></div>
+    
     </div>
+
+
+
+<div id="slidbar" class="slidbar">
+    <button onclick="addvalue('¼')" class="button-29" style="font-size: 25px;">¼</button>
+    <button onclick="addvalue('½')" class="button-29" style="font-size: 25px;">½</button>
+    <button onclick="addvalue('¾')" class="button-29" style="font-size: 25px;">¾</button>
+    <button onclick="addvalue('1¼')" class="button-29" style="font-size: 25px;">1¼</button>
+    <button onclick="addvalue('1½')" class="button-29" style="font-size: 25px;">1½</button>
+    <button  onclick="addvalue('Plumbing')" class="button-29">Plumbing</button>
+    <button onclick="addvalue('CPVC')" class="button-29">CPVC</button>
+    <button onclick="addvalue('N.M')" class="button-29">N.M</button>
+    <button onclick="addvalue('N Poly')" class="button-29">N Poly</button>
+    <button onclick="addvalue('Hatim')" class="button-29">Hatim</button>
+    <button onclick="addvalue('Tiger')" class="button-29">Tiger</button>
+    <button onclick="addvalue('Fantasy')" class="button-29">Fantasy</button>
+    <button onclick="addvalue('Sattar')" class="button-29">Sattar</button>
+    <button onclick="addvalue('Rosa')" class="button-29">Rosa</button>
+    <button onclick="addvalue('Madina')" class="button-29">Madina</button>
+    <button onclick="addvalue('Nazifa')" class="button-29">Nazifa</button>
+    <button onclick="addvalue('Pipe')" class="button-29">Pipe</button>
+    <button onclick="addvalue('Madina')" class="button-29">Madina</button>
+    <button onclick="addvalue('')" class="button-29">uPVC</button>
+
+</div>
+
+
 
 
     <script src="product.js"></script>
     <script>
 
-document.addEventListener("DOMContentLoaded", function() {
+
+
+
 
 
     const searchInput = document.getElementById("searchInput");
     const resultContainer = document.getElementById("resultContainer");
 
-    searchInput.addEventListener("input", function() {
+    searchInput.addEventListener("input", active);
+
+    function active(){
         const searchTerm = searchInput.value.toLowerCase();
         const filteredProducts = products.filter(product => containsAllWords(product.name.toLowerCase(), searchTerm));
         displayProducts(filteredProducts);
-    });
+    }
+
 
     function containsAllWords(productName, searchTerm) {
         const searchWords = searchTerm.split(" ");
@@ -82,13 +264,18 @@ document.addEventListener("DOMContentLoaded", function() {
         products.forEach(product => {
             const productDiv = document.createElement("div");
             productDiv.classList.add("product");
-            productDiv.innerHTML = `<p>পোডাক্টের নাম : ${product.name}</p>
-                                    <p>কাষ্টমার দাম: ${product.salesPrice.toFixed(2)}</p>
-                                    <p>দোকানদার দাম: ${product.retailPrice.toFixed(2)}</p>`;
+            productDiv.innerHTML = `<p> ${product.name}</p>
+                                    <p >${product.salesPrice.toFixed(2)}</p>
+                                    <p style="color:red;" >${product.retailPrice.toFixed(2)}</p>`;
             resultContainer.appendChild(productDiv);
         });
     }
-});
+
+function addvalue(e){
+    document.getElementById('searchInput').value +=`${e} `;
+    active()
+}
+
 
     </script>
 </body>
